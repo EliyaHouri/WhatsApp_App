@@ -7,23 +7,23 @@ function Conversations({currentUser, setCurrentUser}) {
 
     const handleConversationClick = (conversation) => {
         setCurrentUser({
-            ...currentUser, 
+            ...currentUser,
             currFriend: currentUser.friends.find(friend => friend.name === conversation.name),
         });
     };
 
     return (
-        <div className="col-lg-3 col-md-4 col-12" id="conversations-section">
+        <div id="conversations-section">
             <ConversationsHeader currentUser={currentUser}/>
             <main className="conversations">
                 {conversationsData.length > 0 && conversationsData.map((conversation, index) => (
                     <div key={index} onClick={() => handleConversationClick(conversation)}>
-                        <Conversation 
-                            name={conversation.name ? conversation.name : ""} 
+                        <Conversation
+                            name={conversation.name ? conversation.name : ""}
                             time={conversation.messages && conversation.messages.length > 0 ? conversation.messages[conversation.messages.length - 1].time : ""}
-                            message={conversation.messages && conversation.messages.length > 0 ? conversation.messages[conversation.messages.length - 1].text : ""} 
-                            img={conversation.image} 
-                            current={currentUser.currentConversation === conversation.name} 
+                            message={conversation.messages && conversation.messages.length > 0 ? conversation.messages[conversation.messages.length - 1].text : ""}
+                            img={conversation.image}
+                            current={currentUser.currentConversation === conversation.name}
                         />
                     </div>
                 ))}
