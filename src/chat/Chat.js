@@ -12,16 +12,14 @@ function Chat({currentUser}) {
         <>
             <ChatHeader name={currentUser.currFriend.name} img={currentUser.currFriend.image} />
             <main className="messages" >
-                <div className="real-messages">
                 {messsagesData.length > 0 && messsagesData.map((message, index) => (
-                <Message 
+                <Message
                     key={index}
-                    text={message.text} 
-                    time={message.time} 
-                    side={message.sender === currentUser.username ? 'left' : 'right'} 
+                    text={message.text}
+                    time={message.time}
+                    side={message.sender === currentUser.username ? 'left' : 'right'}
                 />
                 ))}
-                </div>
             </main>
         </>
     );
